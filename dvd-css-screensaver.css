@@ -1,0 +1,73 @@
+:root {
+    --animation-speed: 4s;
+}
+
+html,body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.marquee {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    line-height: 100vh;
+    background-color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.marquee-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    padding-left: 100%;
+    animation: marquee var(--animation-speed) linear infinite,
+        color-change steps(1, end) calc(1.5 * var(--animation-speed)) infinite;
+    font-size: 62px;
+}
+
+
+.dvd-logo {
+    width: 400px;
+    height: 200px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 100px);
+    }
+    25% {
+        transform: translate(-50%, 50%);
+    }
+    50% {
+        transform: translate(-100%, 0px);
+    }
+    75% {
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes color-change {
+    0% {
+        filter: invert(10%) sepia(93%) saturate(6945%) hue-rotate(2deg) brightness(106%) contrast(112%); /* red */
+    }
+    16.66% {
+        filter: invert(100%) sepia(49%) saturate(3376%) hue-rotate(356deg) brightness(101%) contrast(105%); /* yellow */
+    }
+    33.33% {
+        filter: invert(99%) sepia(67%) saturate(1584%) hue-rotate(46deg) brightness(106%) contrast(95%); /*lime*/
+    }
+    50% {
+        filter: invert(9%) sepia(100%) saturate(7411%) hue-rotate(248deg) brightness(88%) contrast(144%); /* blue */
+    }
+    66.66% {
+        filter: invert(21%) sepia(76%) saturate(5763%) hue-rotate(293deg) brightness(114%) contrast(126%); /* magenta */
+    }
+    83.33% {
+        filter: invert(100%); /* white */
+    }
+}
